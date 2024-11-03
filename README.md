@@ -35,15 +35,15 @@ replace {address} by the address you want to Delegate
 ### Voting
 Vote for Proposal 1:
 ```shell
-npx ts-node --files ./scripts/CastVote.ts 1
+npx ts-node --files ./scripts/CastVote.ts 0
 ```
 Vote for Proposal 2:
 ```shell
-npx ts-node --files ./scripts/CastVote.ts 2
+npx ts-node --files ./scripts/CastVote.ts 1
 ```
 Vote for Proposal 3:
 ```shell
-npx ts-node --files ./scripts/CastVote.ts 3
+npx ts-node --files ./scripts/CastVote.ts 2
 ```
 
 ### Check the Winner
