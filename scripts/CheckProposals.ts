@@ -12,7 +12,7 @@ import { abi, bytecode } from "../artifacts/contracts/Ballot.sol/Ballot.json";
 
 dotenv.config();
 const providerApiKey = process.env.ALCHEMY_API_KEY || "";
-
+const contractAddress = process.env.CONTRACT_ADDRESS || "" ;
 async function main() {
   const publicClient = createPublicClient({
     chain: sepolia,
@@ -21,7 +21,7 @@ async function main() {
 
   for (let index = 0; index < 3; index++) {
     const proposal = (await publicClient.readContract({
-      address: "0xcb883c97860e0b367bb1b3c6c4bc5cedfd1c35d6",
+      address: `0x${contractAddress}`,
       abi,
       functionName: "proposals",
       args: [BigInt(index)],

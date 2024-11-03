@@ -14,7 +14,7 @@ dotenv.config();
 
 const providerApiKey = process.env.ALCHEMY_API_KEY || "";
 const deployerPrivateKey = process.env.PRIVATE_KEY || "";
-const contractAddress = "0xcb883c97860e0b367bb1b3c6c4bc5cedfd1c35d60";
+const contractAddress = process.env.CONTRACT_ADDRESS || "" ;
 async function main() {
   const proposal = process.argv.slice(2)[0];
   const account = privateKeyToAccount(`0x${deployerPrivateKey}`);
@@ -29,7 +29,7 @@ async function main() {
   });
 
   const voteTxHash = await deployer.writeContract({
-    address: contractAddress,
+    address: `0x${contractAddress}`,
     abi,
     functionName: "vote",
     args: [proposal],

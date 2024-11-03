@@ -10,7 +10,7 @@ import { abi, bytecode } from "../artifacts/contracts/Ballot.sol/Ballot.json";
 
 dotenv.config();
 const providerApiKey = process.env.ALCHEMY_API_KEY || "";
-const contractAddress = "0xcb883c97860e0b367bb1b3c6c4bc5cedfd1c35d6";
+const contractAddress = process.env.CONTRACT_ADDRESS || "" ;
 async function main() {
   const publicClient = createPublicClient({
     chain: sepolia,
@@ -18,7 +18,7 @@ async function main() {
   });
 
   const winner = (await publicClient.readContract({
-    address: contractAddress,
+    address: `0x${contractAddress}`,
     abi,
     functionName: "winnerName",
   })) as `0x${string}`;
